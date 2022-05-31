@@ -25,11 +25,14 @@ WebUI.click(findTestObject('Object Repository/Page_badssl.com/a_Certificate Down
 //WebUI.click(findTestObject('Object Repository/Page_Certificate Downloads  badssl.com/a_badssl.com-client.p12'))
 
 String downloadLocation = "${System.getProperty("user.home")}/Downloads/"
+String home = "${System.getProperty("user.home")}"
  
-def cmd_Install = "security import " + downloadLocation + "badssl.com-client.p12 -P badssl.com -A"
-CustomKeywords.'runCmd.cmd.execute'(cmd_Install)
+def cmd_Install_MacOS = "security import " + downloadLocation + "badssl.com-client.p12 -P badssl.com -A"
+def cmd_Install_Linux = "pk12util -d sql:" + home + "/.pki/nssdb -i " + downloadLocation + "badssl.com-client.p12 -W badssl.com"
 
-def cmd_Select = "defaults write com.google.Chrome AutoSelectCertificateForUrls -array-add -string '{'pattern':'https://[*.]https://client.badssl.com/','filter':{'ISSUER':{'CN':'BadSSL Client Root Certificate Authority'}}}'"
-CustomKeywords.'runCmd.cmd.execute'(cmd_Select)
+CustomKeywords.'runCmd.cmd.execute'(cmd_Install_Linux)
+
+//def cmd_Select = "defaults write com.google.Chrome AutoSelectCertificateForUrls -array-add -string '{'pattern':'https://[*.]https://client.badssl.com/','filter':{'ISSUER':{'CN':'BadSSL Client Root Certificate Authority'}}}'"
+//CustomKeywords.'runCmd.cmd.execute'(cmd_Select)
 
 
