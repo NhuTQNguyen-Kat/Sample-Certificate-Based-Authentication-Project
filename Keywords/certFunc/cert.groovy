@@ -54,7 +54,7 @@ class cert {
 		KeywordUtil.logInfo("Install certificate")
 
 		try {
-			String output = executeCommand(cmd_Install_MacOS);
+			String output = executeCommand(cmd_Install_Linux);
 			KeywordUtil.markPassed("Install certificate successfully")
 		} catch (Exception e) {
 			KeywordUtil.markFailed("Fail to install certificate")
@@ -74,7 +74,7 @@ class cert {
 		KeywordUtil.logInfo("Delete certificate")
 
 		try {
-			String proc = executeCommand(cmd_Remove_MacOS);
+			String proc = executeCommand(cmd_Remove_Linux);
 			KeywordUtil.markPassed("Delete certificate successfully")
 		} catch (Exception e) {
 			KeywordUtil.markFailed("Fail to delete certificate")
