@@ -27,7 +27,7 @@ class TestListener {
 	 * Executes before every test case starts.
 	 * @param testCaseContext related information of the executed test case.
 	 */
-	@BeforeTestCasenull
+	@BeforeTestCase
 	def BeforeTestCase(TestCaseContext testCaseContext) {
 		
 		'Install Certificate'
