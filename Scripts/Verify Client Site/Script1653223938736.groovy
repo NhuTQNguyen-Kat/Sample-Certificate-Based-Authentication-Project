@@ -18,7 +18,7 @@ import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import internal.GlobalVariable as GlobalVariable
 
 
-WebUI.waitForElementVisible(findTestObject('Object Repository/Page_Client/txt_Client'),30)
+WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Client/txt_Client'),30)
 
 WebUI.takeFullPageScreenshot()
 
