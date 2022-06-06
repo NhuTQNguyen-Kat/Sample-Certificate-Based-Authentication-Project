@@ -36,6 +36,7 @@ import com.kms.katalon.core.mobile.helper.MobileElementCommonHelper
 import com.kms.katalon.core.util.KeywordUtil
 
 import com.kms.katalon.core.webui.exception.WebElementNotFoundException
+import com.kms.katalon.core.configuration.RunConfiguration
 
 
 class cert {
@@ -45,16 +46,18 @@ class cert {
 	 */
 	@Keyword
 	def installCert() {
-		String downloadLocation = "${System.getProperty("user.home")}/Downloads/"
+		String projectLocation = RunConfiguration.getProjectDir()
+		String certFileLocation = projectLocation + "/"
 		String home = "${System.getProperty("user.home")}"
 
-		def cmd_Install_MacOS = "security import " + downloadLocation + "badssl.com-client.p12 -P badssl.com -A"
-		def cmd_Install_Linux = "pk12util -d sql:" + home + "/.pki/nssdb -i " + downloadLocation + "badssl.com-client.p12 -W badssl.com"
+		def cmd_Install_MacOS = "security import " + certFileLocation + "badssl.com-client.p12 -P badssl.com -A"
+
+		def cmd_Install_Linux = "pk12util -d sql:" + home + "/.pki/nssdb -i " + certFileLocation + "badssl.com-client.p12 -W badssl.com"
 
 		KeywordUtil.logInfo("Install certificate")
 
 		try {
-			String output = executeCommand(cmd_Install_Linux);
+			String output = executeCommand(cmd_Install_MacOS);
 			KeywordUtil.markPassed("Install certificate successfully")
 		} catch (Exception e) {
 			KeywordUtil.markFailed("Fail to install certificate")
@@ -74,7 +77,7 @@ class cert {
 		KeywordUtil.logInfo("Delete certificate")
 
 		try {
-			String proc = executeCommand(cmd_Remove_Linux);
+			String proc = executeCommand(cmd_Remove_MacOS);
 			KeywordUtil.markPassed("Delete certificate successfully")
 		} catch (Exception e) {
 			KeywordUtil.markFailed("Fail to delete certificate")

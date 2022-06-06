@@ -34,7 +34,7 @@ class TestListener {
 		CustomKeywords.'certFunc.cert.installCert'()
 		
 		'Select Certificate'
-		//CustomKeywords.'certFunc.cert.selectCert'()
+		CustomKeywords.'certFunc.cert.selectCert'()
 		
 		'Open Browser'
 		WebUI.openBrowser(GlobalVariable.G_ClientURL)
@@ -52,7 +52,7 @@ class TestListener {
 	def AfterTestCase(TestCaseContext testCaseContext) {
 		
 		'Delete Certificate'
-		CustomKeywords.'certFunc.cert.deleteCert'()
+		//CustomKeywords.'certFunc.cert.deleteCert'()
 		
 		'Close browser'
 		WebUI.closeBrowser(FailureHandling.OPTIONAL)
