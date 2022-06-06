@@ -1,26 +1,23 @@
 {
-  "keywordFileContentHash": "159616943904C253A3B06D43AD954907",
+  "keywordFileContentHash": "91ACF127DA49B0F79396ABC6E6ABA44A",
   "keywordClasses": [
     {
       "name": "certFunc.cert",
       "keywordMethods": [
         {
           "name": "installCert",
-          "parameters": [],
-          "javadoc": "/**\n\t * Install Certification\n\t */"
+          "parameters": []
         },
         {
           "name": "deleteCert",
-          "parameters": [],
-          "javadoc": "/**\n\t * Delete Certification\n\t */"
+          "parameters": []
         },
         {
           "name": "selectCert",
-          "parameters": [],
-          "javadoc": "/**\n\t * Select Certification\n\t */"
+          "parameters": []
         }
       ]
     }
   ],
-  "javadocParsed": true
+  "javadocParsed": false
 }
