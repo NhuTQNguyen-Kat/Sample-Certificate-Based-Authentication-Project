@@ -27,14 +27,16 @@ class TestListener {
 	 * Executes before every test case starts.
 	 * @param testCaseContext related information of the executed test case.
 	 */
-	@BeforeTestCase
+	@BeforeTestCasenull
 	def BeforeTestCase(TestCaseContext testCaseContext) {
 		
 		'Install Certificate'
-		//CustomKeywords.'certFunc.cert.installCert'()
+		CustomKeywords.'certFunc.cert.installCert'()
 		
 		'Select Certificate'
 		//CustomKeywords.'certFunc.cert.selectCert'()
+		
+		WebUI.delay(300)
 		
 		'Open Browser'
 		WebUI.openBrowser(GlobalVariable.G_ClientURL)
