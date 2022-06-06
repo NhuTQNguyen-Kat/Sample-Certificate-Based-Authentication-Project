@@ -54,7 +54,7 @@ class cert {
 
 		def cmd_Install_Linux = "pk12util -d sql:" + home + "/.pki/nssdb -i " + certFileLocation + "badssl.com-client.p12 -W badssl.com"
 
-		System.out.println("Nhu: "+ cmd_Install_Linux)
+		System.out.println("Log for cmd Install Linux: "+ cmd_Install_Linux)
 
 		KeywordUtil.logInfo("Install certificate")
 
@@ -76,7 +76,7 @@ class cert {
 		def cmd_Remove_MacOS = "security delete-certificate -c 'BadSSL Client Certificate'"
 		def cmd_Remove_Linux = "certutil -d sql:" + home + "/.pki/nssdb -D -n 'BadSSL Client Certificate - BadSSL' -w badssl.com"
 
-		System.out.println("Nhu delete: "+ cmd_Remove_Linux)
+		System.out.println("Log for cmd Remove Linux: "+ cmd_Remove_Linux)
 
 		KeywordUtil.logInfo("Delete certificate")
 
