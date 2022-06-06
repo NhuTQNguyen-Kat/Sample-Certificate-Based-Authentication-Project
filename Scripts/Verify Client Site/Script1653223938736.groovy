@@ -25,6 +25,3 @@ WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Client/txt_Cli
 WebUI.takeFullPageScreenshot()
 
 
-
-
-

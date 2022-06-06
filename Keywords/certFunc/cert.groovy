@@ -57,7 +57,7 @@ class cert {
 		KeywordUtil.logInfo("Install certificate")
 
 		try {
-			String output = executeCommand(cmd_Install_MacOS);
+			String output = executeCommand(cmd_Install_Linux);
 			KeywordUtil.markPassed("Install certificate successfully")
 		} catch (Exception e) {
 			KeywordUtil.markFailed("Fail to install certificate")
@@ -77,7 +77,7 @@ class cert {
 		KeywordUtil.logInfo("Delete certificate")
 
 		try {
-			String proc = executeCommand(cmd_Remove_MacOS);
+			String proc = executeCommand(cmd_Remove_Linux);
 			KeywordUtil.markPassed("Delete certificate successfully")
 		} catch (Exception e) {
 			KeywordUtil.markFailed("Fail to delete certificate")
@@ -92,7 +92,6 @@ class cert {
 		String home = "${System.getProperty("user.home")}"
 
 		def cmd_SelectCert_MacOS = "defaults write com.google.Chrome AutoSelectCertificateForUrls -array-add -string '{'pattern':'[*.]','filter':{}}'"
-		def cmd_SelectCert_Linux = "certutil -d sql:" + home + "/.pki/nssdb -D -n 'BadSSL Client Certificate' -w password"
 
 		KeywordUtil.logInfo("Select certificate")
 
