@@ -31,7 +31,7 @@ class TestListener {
 	def BeforeTestCase(TestCaseContext testCaseContext) {
 		
 		'Install Certificate'
-		CustomKeywords.'certFunc.cert.installCert'()
+		//CustomKeywords.'certFunc.cert.installCert'()
 		
 		'Select Certificate'
 		//CustomKeywords.'certFunc.cert.selectCert'()

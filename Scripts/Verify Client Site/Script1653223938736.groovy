@@ -17,6 +17,7 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import internal.GlobalVariable as GlobalVariable
 
+WebUI.delay(30)
 
 WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Client/txt_Client'),30)
 
