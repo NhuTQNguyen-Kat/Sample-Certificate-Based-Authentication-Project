@@ -46,20 +46,20 @@ class cert {
 	 */
 	@Keyword
 	def installCert(String password) {
+		
 		String projectLocation = RunConfiguration.getProjectDir()
 		String certFileLocation = projectLocation + "/CertFile/"
 		String home = "${System.getProperty("user.home")}"
 
 		def cmd_Install_MacOS = "security import " + certFileLocation + "badssl.com-client.p12 -P " + password + " -A"
-
 		def cmd_Install_Linux = "pk12util -d sql:" + home + "/.pki/nssdb -i " + certFileLocation + "badssl.com-client.p12 -W " + password
 
-		System.out.println("Log for cmd Install Linux: "+ cmd_Install_Linux)
-
+		KeywordUtil.logInfo("Log for cmd Install Linux: "+ cmd_Install_Linux)
 		KeywordUtil.logInfo("Install certificate")
 
 		try {
-			String output = executeCommand(cmd_Install_Linux);
+			String out = executeCommand(cmd_Install_Linux);
+			KeywordUtil.logInfo("Output: " + out)
 			KeywordUtil.markPassed("Install certificate successfully")
 		} catch (Exception e) {
 			KeywordUtil.markFailed("Fail to install certificate")
@@ -71,17 +71,18 @@ class cert {
 	 */
 	@Keyword
 	def deleteCert(String commonName, String password) {
+		
 		String home = "${System.getProperty("user.home")}"
 
 		def cmd_Remove_MacOS = "security delete-certificate -c 'BadSSL Client Certificate'"
 		def cmd_Remove_Linux = "certutil -d sql:" + home + "/.pki/nssdb -D -n '" + commonName +"' -w " + password
 
-		System.out.println("Log for cmd Remove Linux: "+ cmd_Remove_Linux)
-
+		KeywordUtil.logInfo("Log for cmd Remove Linux: "+ cmd_Remove_Linux)
 		KeywordUtil.logInfo("Delete certificate")
 
 		try {
-			String proc = executeCommand(cmd_Remove_Linux);
+			String out = executeCommand(cmd_Remove_Linux);
+			KeywordUtil.logInfo("Output: " + out)
 			KeywordUtil.markPassed("Delete certificate successfully")
 		} catch (Exception e) {
 			KeywordUtil.markFailed("Fail to delete certificate")
@@ -104,7 +105,8 @@ class cert {
 			while ((line = reader.readLine())!= null) {
 				output.append(line + "\n");
 			}
-			System.out.println("log: "+ p.getErr().text)
+			//KeywordUtil.logInfo("log: "+ p.getErr().text)
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

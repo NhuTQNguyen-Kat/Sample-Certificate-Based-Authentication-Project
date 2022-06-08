@@ -1,5 +1,5 @@
 {
-  "keywordFileContentHash": "DC3D2E85B14EAE101DD303A4DF485531",
+  "keywordFileContentHash": "C5DC33E6B40CE4FE8CE69BA4D5D2A535",
   "keywordClasses": [
     {
       "name": "certFunc.cert",
@@ -7,19 +7,6 @@
         {
           "name": "installCert",
           "parameters": [
-            {
-              "name": "commonName",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            },
             {
               "name": "password",
               "initialExpression": "",
@@ -33,7 +20,8 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": "/**\n\t * Install Certification\n\t */"
         },
         {
           "name": "deleteCert",
@@ -64,10 +52,11 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": "/**\n\t * Delete Certification\n\t */"
         }
       ]
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }

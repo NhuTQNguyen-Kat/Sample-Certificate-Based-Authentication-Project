@@ -11,7 +11,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'BadSSL Client Certificate'</initValue>
+      <initValue>'BadSSL Client Certificate - BadSSL'</initValue>
       <name>G_CommonName</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
