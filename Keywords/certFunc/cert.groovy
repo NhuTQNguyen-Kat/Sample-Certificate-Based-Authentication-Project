@@ -45,14 +45,14 @@ class cert {
 	 * Install Certification
 	 */
 	@Keyword
-	def installCert() {
+	def installCert(String password) {
 		String projectLocation = RunConfiguration.getProjectDir()
-		String certFileLocation = projectLocation + "/"
+		String certFileLocation = projectLocation + "/CertFile/"
 		String home = "${System.getProperty("user.home")}"
 
-		def cmd_Install_MacOS = "security import " + certFileLocation + "badssl.com-client.p12 -P badssl.com -A"
+		def cmd_Install_MacOS = "security import " + certFileLocation + "badssl.com-client.p12 -P " + password + " -A"
 
-		def cmd_Install_Linux = "pk12util -d sql:" + home + "/.pki/nssdb -i " + certFileLocation + "badssl.com-client.p12 -W badssl.com"
+		def cmd_Install_Linux = "pk12util -d sql:" + home + "/.pki/nssdb -i " + certFileLocation + "badssl.com-client.p12 -W " + password
 
 		System.out.println("Log for cmd Install Linux: "+ cmd_Install_Linux)
 
@@ -70,11 +70,11 @@ class cert {
 	 * Delete Certification
 	 */
 	@Keyword
-	def deleteCert() {
+	def deleteCert(String commonName, String password) {
 		String home = "${System.getProperty("user.home")}"
 
 		def cmd_Remove_MacOS = "security delete-certificate -c 'BadSSL Client Certificate'"
-		def cmd_Remove_Linux = "certutil -d sql:" + home + "/.pki/nssdb -D -n 'BadSSL Client Certificate - BadSSL' -w badssl.com"
+		def cmd_Remove_Linux = "certutil -d sql:" + home + "/.pki/nssdb -D -n '" + commonName +"' -w " + password
 
 		System.out.println("Log for cmd Remove Linux: "+ cmd_Remove_Linux)
 
@@ -88,24 +88,6 @@ class cert {
 		}
 	}
 
-	/**
-	 * Select Certification
-	 */
-	@Keyword
-	def selectCert() {
-		String home = "${System.getProperty("user.home")}"
-
-		def cmd_SelectCert_MacOS = "defaults write com.google.Chrome AutoSelectCertificateForUrls -array-add -string '{'pattern':'[*.]','filter':{}}'"
-
-		KeywordUtil.logInfo("Select certificate")
-
-		try {
-			String proc = executeCommand(cmd_SelectCert_MacOS);
-			KeywordUtil.markPassed("Select certificate successfully")
-		} catch (Exception e) {
-			KeywordUtil.markFailed("Fail to select certificate")
-		}
-	}
 
 	private String executeCommand(String command) {
 
@@ -122,7 +104,7 @@ class cert {
 			while ((line = reader.readLine())!= null) {
 				output.append(line + "\n");
 			}
-			System.out.println("err: "+ p.getErr().text)
+			System.out.println("log: "+ p.getErr().text)
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

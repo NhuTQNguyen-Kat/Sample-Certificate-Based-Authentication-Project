@@ -31,12 +31,7 @@ class TestListener {
 	def BeforeTestCase(TestCaseContext testCaseContext) {
 		
 		'Install Certificate'
-		CustomKeywords.'certFunc.cert.installCert'()
-		
-		'Select Certificate'
-		//CustomKeywords.'certFunc.cert.selectCert'()
-		
-		WebUI.delay(300)
+		CustomKeywords.'certFunc.cert.installCert'(GlobalVariable.G_Password)
 		
 		'Open Browser'
 		WebUI.openBrowser(GlobalVariable.G_ClientURL)
@@ -54,7 +49,7 @@ class TestListener {
 	def AfterTestCase(TestCaseContext testCaseContext) {
 		
 		'Delete Certificate'
-		CustomKeywords.'certFunc.cert.deleteCert'()
+		CustomKeywords.'certFunc.cert.deleteCert'(GlobalVariable.G_CommonName, GlobalVariable.G_Password)
 		
 		'Close browser'
 		WebUI.closeBrowser(FailureHandling.OPTIONAL)

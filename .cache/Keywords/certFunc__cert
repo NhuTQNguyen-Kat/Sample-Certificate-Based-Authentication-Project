@@ -1,20 +1,70 @@
 {
-  "keywordFileContentHash": "91ACF127DA49B0F79396ABC6E6ABA44A",
+  "keywordFileContentHash": "DC3D2E85B14EAE101DD303A4DF485531",
   "keywordClasses": [
     {
       "name": "certFunc.cert",
       "keywordMethods": [
         {
           "name": "installCert",
-          "parameters": []
+          "parameters": [
+            {
+              "name": "commonName",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "password",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ]
         },
         {
           "name": "deleteCert",
-          "parameters": []
-        },
-        {
-          "name": "selectCert",
-          "parameters": []
+          "parameters": [
+            {
+              "name": "commonName",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "password",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ]
         }
       ]
     }

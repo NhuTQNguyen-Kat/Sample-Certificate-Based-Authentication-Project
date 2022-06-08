@@ -19,4 +19,9 @@
       <initValue>'https://client.badssl.com/'</initValue>
       <name>G_ClientURL</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'badssl.com'</initValue>
+      <name>G_Password</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
